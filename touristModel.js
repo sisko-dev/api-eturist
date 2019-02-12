@@ -5,7 +5,11 @@ const touristModel=new Schema({
     surname: {type: String},
     checkindate: {type: Date},
     checkoutdate: {type: Date},
-    doctype: {type: String}
+    doctype: {type: String},
+    accommodation: {type: String},
+    docnum:{type: String},
+
+
 })
 
-export default mongoose.model('turistis',touristModel)
+export default mongoose.model('tourists',touristModel)

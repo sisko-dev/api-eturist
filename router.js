@@ -43,6 +43,8 @@ router
       req.tourist.checkindate=req.body.checkindate
       req.tourist.checkoutdate=req.body.checkoutdate
       req.tourist.doctype=req.body.doctype
+      req.tourist.docnum=req.body.docnum
+      req.tourist.accommodation=req.body.accommodation
 
 
       req.tourist.save();
