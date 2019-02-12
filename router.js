@@ -40,6 +40,10 @@ router
   .put((req, res) => {
       req.tourist.name = req.body.name;
       req.tourist.surname = req.body.surname;
+      req.tourist.checkindate=req.body.checkindate
+      req.tourist.checkoutdate=req.body.checkoutdate
+      req.tourist.doctype=req.body.doctype
+
 
       req.tourist.save();
       res.json(req.tourist);
