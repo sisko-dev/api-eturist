@@ -8,6 +8,8 @@ const touristModel=new Schema({
     doctype: {type: String},
     accommodation: {type: String},
     docnum:{type: String},
+    checkedin:{type: Boolean},
+    
 
 
 })

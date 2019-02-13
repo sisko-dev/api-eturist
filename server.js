@@ -8,7 +8,6 @@ const db= mongoose.connect('mongodb://admin:admin11@ds021915.mlab.com:21915/etur
 
 
 
-
 const port = process.env.PORT || 5656;
 
 app.use(bodyParser.json());

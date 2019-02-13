@@ -1,6 +1,8 @@
 import express from "express";
 const router = express.Router();
 import Tourist from "./touristModel";
+import CircularJSON from 'circular-json';
+
 
 router
   .route("/")
@@ -27,16 +29,21 @@ router
         });
     
   })
+  
   router
   .route('/accommodation/:accommodation')
   .get((req, res) => {
-    const data= []
+    
     Tourist.find({accommodation: req.params.accommodation}, (err, accommodations) => {
           if (err) res.send(err);
-          res.json(accommodations);
+          const data = {
+            accommodationInfo: accommodations,
+            length: accommodations.length
+          }
+          res.json(data);
         });
-    
   })
+
 
 router.use("/:touristId", (req, res, next) => {
   Tourist.findById(req.params.touristId, (err, tourist) => {
@@ -61,6 +68,7 @@ router
     req.tourist.doctype = req.body.doctype;
     req.tourist.docnum = req.body.docnum;
     req.tourist.accommodation = req.body.accommodation;
+    req.tourist.checkedin=req.body.checkedin
 
     req.tourist.save();
     res.json(req.tourist);
